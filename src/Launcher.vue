@@ -4,8 +4,8 @@
       <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
         {{newMessagesCount}}
       </div>
-      <img class="sc-open-icon" src="./assets/close-icon.png" />
-      <img class="sc-closed-icon" src="./assets/logo-no-bg.svg" />
+      <img class="sc-open-icon" src="assets/images/close-icon.png" />
+      <img class="sc-closed-icon" src="assets/images/logo-no-bg.svg" />
     </div>
     <ChatWindow
       :messageList="messageList"
@@ -140,10 +140,10 @@ export default {
         return this.title
       }
 
-      if (this.participants.length > 1) {
+      if (this.participants.length > 2) {
         return 'You, ' + this.participants[0].name + ' & others'
       } else {
-        return 'You & ' + this.participants[0].name
+        return this.participants[0].name
       }
     }
   },

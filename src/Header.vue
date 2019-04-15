@@ -3,7 +3,7 @@
     <img class="sc-header--img" :src="imageUrl" alt="" v-if="imageUrl" />
     <div class="sc-header--title" @click="toggleUserList"> {{title}} </div>
     <div class="sc-header--close-button" @click="onClose">
-      <img src="./assets/close-icon.png" alt="" />
+      <img src="assets/images/close-icon.png" alt="" />
     </div>
   </div>
 </template>
@@ -55,7 +55,8 @@ export default {
 .sc-header--img {
   border-radius: 50%;
   align-self: center;
-  padding: 10px;
+  height:40px;
+  background-color: #fff;
 }
 
 .sc-header--title {

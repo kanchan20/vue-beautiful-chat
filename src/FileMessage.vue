@@ -2,7 +2,7 @@
   <div class='sc-message--file' :style="messageColors">
     <div class='sc-message--file-icon'>
       <a :href="data.file.url || '#'" target='_blank'>
-        <img src="./assets/file.svg" alt='generic file icon' height="60" />
+        <img :src="data.file.url" alt='generic file icon' height="60" />
       </a>
     </div>
     <div class='sc-message--file-name' :style="messageColors">

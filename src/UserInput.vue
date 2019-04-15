@@ -2,9 +2,9 @@
   <div>
     <Suggestions :suggestions="suggestions" v-on:sendSuggestion="_submitSuggestion" :colors="colors"/>
     <div v-if="file" class='file-container' :style="{backgroundColor: colors.userInput.text, color: colors.userInput.bg}">
-      <span class='icon-file-message'><img src="./assets/file.svg" alt='genericFileIcon' height="15" /></span>
+      <span class='icon-file-message'><img :src="preview_file" alt='genericFileIcon' height="15" /></span>
       {{file.name}}
-      <span class='delete-file-message' @click="cancelFile()" ><img src="./assets/close.svg" alt='close icon' height="10" title='Remove the file' /></span>
+      <span class='delete-file-message' @click="cancelFile()" ><img src="assets/images/close.svg" alt='close icon' height="10" title='Remove the file' /></span>
     </div>
     <form class="sc-user-input" :class="{active: inputActive}" :style="{background: colors.userInput.bg}">
       <div
@@ -79,7 +79,8 @@ export default {
   data () {
     return {
       file: null,
-      inputActive: false
+      inputActive: false,
+      preview_file:null
     }
   },
   methods: {
@@ -138,6 +139,12 @@ export default {
     },
     _handleFileSubmit (file) {
       this.file = file
+      var files = event.target.files || event.dataTransfer.files;
+			let reader = new FileReader();
+      reader.onload = (e) => {
+        this.preview_file = e.target.result;
+      };
+      reader.readAsDataURL(files[0]);
     }
   }
 }

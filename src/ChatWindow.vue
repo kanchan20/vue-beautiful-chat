@@ -11,7 +11,7 @@
       v-if="showUserList"
       :participants="participants"
     />
-    <MessageList
+    <MessageList v-chat-scroll="{always: false, smooth: true}"
       v-if="!showUserList"
       :messages="messages"
       :participants="participants"
